@@ -1,0 +1,15 @@
+/* chat */
+.chat_box{
+    position: fixed;
+    right: 0;
+    bottom: 300px;
+}
+.chat_open_btn{
+    width: 40px;
+    height: 40px;
+    background-color: darkslategrey;
+    border: 1px solid darkorange;
+    border-right: none;
+    border-radius: 15px 0 0 15px;
+    color: darkorange;
+}
