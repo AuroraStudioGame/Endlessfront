@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import Login from './login'
 import Constructor from './constructor'
-import Settings from './settings'
 
 class Main extends Component {
   constructor() {
@@ -11,7 +10,7 @@ class Main extends Component {
 
     }
   }
-  componentWillMount(){
+  componentDidMount(){
       // fetch('users/getuser').then(res=>{
       //     return res.text()
       // }).then(text=>{
@@ -24,7 +23,6 @@ class Main extends Component {
         <Switch>
           <Route exact path='/' component={Login}/>
           <Route exact path='/constructor' component={Constructor}/>
-          <Route exact path='/settings' component={Settings}/>
         </Switch>
       </main>
     )
