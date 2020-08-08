@@ -16,13 +16,11 @@ div.interface_box {
     position: fixed;
     top: -30px;
     left: -30px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    box-shadow:
-      0 0 0 5px hsl(0, 0%, 80%),
-      0 0 0 10px hsl(0, 0%, 90%);
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
     background-color: darkslategrey;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -33,6 +31,7 @@ img.interface_avatar {
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: inset 0 0 10px 10px rgb(255, 0, 0, 0.5);
 }
 .interface_box:hover > div.interface_container {
     top: -10px;
@@ -87,9 +86,7 @@ div.settings_modal {
     border: 1px solid black;
     background-color: darkslategrey;
     padding: 20px;
-    box-shadow:
-      0 0 0 5px hsl(0, 0%, 80%),
-      0 0 0 10px hsl(0, 0%, 90%);
+    box-shadow: 0 0 5px 5px rgb(0, 0, 0, 0.4);
 }
 button.settings_close_btn {
     position: absolute;
@@ -189,7 +186,7 @@ button.dropzone_remove:hover {
 }
 /* INSTRUMENTS */
 div.instruments_box {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 10%;
     overflow: hidden;
@@ -200,8 +197,8 @@ div.instruments_box {
     border-radius: 40px 40px 0 0;
     background-color: darkslategrey;
     box-shadow:
-      0 0 0 5px hsl(0, 0%, 80%),
-      0 0 0 10px hsl(0, 0%, 90%);
+      0 0 5px 3px rgb(0, 0, 0, 0.4),
+      inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
     /* -webkit-transform: perspective(150px) rotateX(15deg);
     transform: perspective(150px) rotateX(15deg); */
 }
@@ -227,4 +224,53 @@ img.instrument_item {
 }
 button.instrument_btn:hover > img.instrument_item {
     background-color: antiquewhite;
+}
+/* MATERIAL SHOP */
+div.materialshop {
+    position: fixed;
+    right: 0;
+    top: 10%;
+    overflow: hidden;
+    width: 50px;
+    height: 80%;
+    border: 1px solid black;
+    border-bottom: none;
+    border-radius: 40px 0 0 40px;
+    background-color: darkslategrey;
+    box-shadow:
+      0 0 5px 3px rgb(0, 0, 0, 0.4),
+      inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
+}
+div.materialshop_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    background-color: darkslategrey;
+    -webkit-transform: none;
+    transform: none;
+    height: 100%;
+}
+button.materialshop_btn {
+    border: none;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: inherit;
+    -webkit-transform: none !important;
+    transform: none !important;
+}
+img.materialshop_item {
+    border-radius: 50%;
+}
+button.materialshop_btn:hover {
+    transition: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+/* CANVAS */
+canvas.main_canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
 }

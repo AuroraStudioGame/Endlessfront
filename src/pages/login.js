@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import $ from 'jquery'
-import {roundedRect} from '../components/2dfigures'
 import './pagesStyle.css'
 
 class Login extends Component {

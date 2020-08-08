@@ -29,13 +29,13 @@ class SettingsModal extends Component {
         fetch(`upload?file_id=${this.state.player_id}`, { method: 'POST', body: data }).then((response) => {
           if(response.status === 200 || response.statusText === 'OK') {
             $.post(`players?player_id=${this.state.player_id}&fullname=${this.state.form.fio}&setlogin=${this.state.form.log}&setpass=${this.state.form.pass}&setavatar=${_.get(this.state, ['form', 'avatar', 'name'])}`, (userInfo) => {
-              console.log('SUCCESS-UI->', userInfo)
+              this.handleClose()
             })
           }
         }).catch(console.error)
     } else {
       $.post(`players?player_id=${this.state.player_id}&fullname=${this.state.form.fio}&setlogin=${this.state.form.log}&setpass=${this.state.form.pass}`, (userInfo) => {
-        console.log('SUCCESS-UI->', userInfo)
+        this.handleClose()
       })
     }
   }

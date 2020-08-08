@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Interface from '../components/interface'
 import Instruments from '../components/instruments'
+import MaterialShop from '../components/materialShop'
 import _ from 'lodash'
 import $ from 'jquery'
 import SettingsModal from '../components/SettingsModal';
-import WebGL from '../components'
+import Threejs from '../components/thr'
+import ConstructorScene from '../components/constructorScene'
 
 class Constructor extends Component {
   constructor() {
@@ -37,13 +39,21 @@ class Constructor extends Component {
   openModal = (e) => {
     this.setState({ opened: e })
   }
-  
+  createMesh = (item) => {
+    this.setState({ create: item })
+  }
+  setMaterial = (m) => {
+    console.log('SET MATRIAL->', m)
+    this.setState({ setMatrial: m })
+  }
   render() {
     return (
       <main className='constructor_box'>
-        <WebGL/>
+        {/* <Threejs add={this.state.create}/> */}
+        <ConstructorScene addMesh={this.state.create} setMatrial={this.state.setMaterial}/>
         <Interface userInfo={this.state.userInfo} avatar={this.state.avatarImage} handleClick={e => this.openModal(e)}/>
-        <Instruments/>
+        <MaterialShop setMaterial={this.setMaterial}/>
+        <Instruments createMesh={this.createMesh}/>
         {this.state.opened === 'settings' ? <SettingsModal formValues={this.state.userInfo} onClose={() => this.setState({ opened: null })}/> : null}
       </main>
     )
