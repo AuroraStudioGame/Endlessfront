@@ -44,7 +44,7 @@ class SettingsModal extends Component {
       <div className='settings_modal'>
         <button className='settings_close_btn' onClick={e => this.handleClose()}>x</button>
         <div className='settings_row'>
-            <h3 className='settings_row_title'>ACCOUNT</h3>
+            <h3 className='settings_row_title'>ACCOUNT111</h3>
             <h5 className='settings_row_label'>nickname</h5>
             <input className='settings_input_field'
                   onChange={n => this.setField(n.target.value, 'fio')}
