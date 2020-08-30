@@ -21,7 +21,7 @@ class Instruments extends Component {
     return (
       <div className='instruments_box'>
         <div className='instruments_container'>
-          <button className='instrument_btn'>
+          <button className='instrument_btn' onClick={e => this.handleItemClick('box')}>
             <img src='/instrument_cube.png' width='50' height='50' className='instrument_item'/>
           </button>
           <button className='instrument_btn' name='sphere' onClick={e => this.handleItemClick('sphere')}>

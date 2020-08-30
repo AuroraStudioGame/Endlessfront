@@ -291,20 +291,17 @@ class Login extends Component {
   }
   submitLogin = (e) => {
     if(this.state.login && this.state.pass){
-      fetch(`players?log=${this.state.login}&pass=${this.state.pass}`)
-      .then(async response => {
-        if(response.ok) {
-          let resjson = await response.json()
-          let location = { pathname: '/constructor', state: { userInfo: resjson } }
+      $.get(`players?log=${this.state.login}&pass=${this.state.pass}`, async (response) => {
+        if(response) {
+          //console.log('RES-->', typeof(response), response)
+          //let resjson = await response.json()
+          let location = { pathname: '/constructor', state: { userInfo: response } }
           this.props.history.push(location)
         }
       })
-      .catch(e=>{
-        console.log('FETCH ERROR->', e)
-      })
       e.preventDefault()
     } else if(this.state.fullname && this.state.setlogin && this.state.setpass) {
-      $.get(`players?fullname=${this.state.fullname}&setlogin=${this.state.setlogin}&setpass=${this.state.setpass}`, (res) => {
+      $.get(`register?fullname=${this.state.fullname}&setlogin=${this.state.setlogin}&setpass=${this.state.setpass}`, (res) => {
         console.log('REGISTER SUCCESS-1->', res)
         let location = { pathname: '/constructor', state: { newRegistered: res } }
         this.props.history.push(location)
