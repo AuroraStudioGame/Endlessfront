@@ -1,3 +1,7 @@
+body {
+    font-family: 'Anton', sans-serif !important;
+}
+
 /* interface */
 div.interface_box {
     display: block;
@@ -21,7 +25,7 @@ div.interface_box {
     width: 100px;
     height: 100px;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
-    background-color: darkslategrey;
+    background-color: rgb(47, 79, 79, 0.7);
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
@@ -84,7 +88,7 @@ div.settings_modal {
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    background-color: darkslategrey;
+    background-color: rgb(47, 79, 79, 0.8);
     padding: 20px;
     box-shadow: 0 0 5px 5px rgb(0, 0, 0, 0.4);
 }
@@ -188,42 +192,68 @@ button.dropzone_remove:hover {
 div.instruments_box {
     position: fixed;
     bottom: 0;
-    left: 10%;
+    left: 40%;
     overflow: hidden;
-    width: 80%;
+    z-index: 10;
+    width: 20%;
     height: 50px;
     border: 1px solid black;
     border-bottom: none;
-    border-radius: 40px 40px 0 0;
-    background-color: darkslategrey;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(47, 79, 79, 0.7);
     box-shadow:
       0 0 5px 3px rgb(0, 0, 0, 0.4),
       inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
     /* -webkit-transform: perspective(150px) rotateX(15deg);
     transform: perspective(150px) rotateX(15deg); */
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
 }
 div.instruments_container {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    background-color: darkslategrey;
+    /* background-color: rgb(47, 79, 79, 0.7); */
     -webkit-transform: none;
     transform: none;
 }
 button.instrument_btn {
+    position: absolute;
     border: none;
     height: 50px;
     width: 50px;
-    background-color: inherit;
-    -webkit-transform: none !important;
-    transform: none !important;
+    background-color: rgb(47, 79, 79, 0.2);
+    padding: 0;
+}
+button.instrument_btn_one {
+    top: 0;
+    left: 12%;
+}
+button.instrument_btn_two {
+    top: 0;
+    left: 32%;
+}
+button.instrument_btn_three {
+    top: 0;
+    left: 52%;
+}
+button.instrument_btn_four {
+    top: 0;
+    left: 72%;
 }
 img.instrument_item {
+    background-color: none;
     -webkit-transform: none !important;
     transform: none !important;
 }
-button.instrument_btn:hover > img.instrument_item {
-    background-color: antiquewhite;
+button.instrument_btn:hover {
+    top: 5px;
+    transform: scale(1.1);
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
 }
 /* MATERIAL SHOP */
 div.materialshop {
@@ -235,8 +265,8 @@ div.materialshop {
     height: 80%;
     border: 1px solid black;
     border-bottom: none;
-    border-radius: 40px 0 0 40px;
-    background-color: darkslategrey;
+    border-radius: 10px 0 0 10px;
+    background-color: rgb(47, 79, 79, 0.7);
     box-shadow:
       0 0 5px 3px rgb(0, 0, 0, 0.4),
       inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
@@ -247,7 +277,7 @@ div.materialshop_container {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: darkslategrey;
+    background-color: rgb(47, 79, 79, 0.7);
     -webkit-transform: none;
     transform: none;
     height: 100%;
@@ -267,10 +297,197 @@ img.materialshop_item {
 button.materialshop_btn:hover {
     transition: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
+/* CONTROLS */
+.control_wrapper_btn {
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 11%;
+    width: 20px;
+    border: 1px solid black;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    background-color: rgb(47, 79, 79, 0.7);
+    box-shadow:
+      0 0 5px 3px rgb(0, 0, 0, 0.4),
+      inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
+}
+.control_wrapper_btn_opened {
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 11%;
+    border: 1px solid black;
+    border-left: none;
+    border-radius: 10px 0 0 10px;
+    background-color: rgb(47, 79, 79, 0.7);
+    box-shadow:
+      0 0 5px 3px rgb(0, 0, 0, 0.4),
+      inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
+}
+.control_box_hidden {
+    display: none;
+}
+.control_box {
+    position: fixed;
+    left: 20px;
+    bottom: 10%;
+    overflow: hidden;
+    width: 240px;
+    height: 440px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(47, 79, 79, 0.7);
+    box-shadow:
+      0 0 5px 3px rgb(0, 0, 0, 0.4),
+      inset 0 0 4px 2px rgb(0, 0, 0, 0.5);
+    display: block;
+    padding: 0;
+}
+.control_block_title {
+    color: white;
+    text-align: center;
+}
+.control_block {
+    width: 100%;
+    padding: 0;
+    display: block;
+    margin: 10px 0 10px 0;
+}
+.control_movs_row {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 5px;
+}
+.control_movs_label {
+    align-self: center;
+    color: white;
+}
+.control_movs_btn {
+    height: 30px;
+    width: 40px;
+    background: inherit;
+    border: none;
+    color: white;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    padding: 0;
+    font-size: 10px;
+    font-weight: 600;
+}
+.control_movs_btn_long {
+    height: 30px;
+    width: 100px;
+    background: inherit;
+    border: none;
+    color: white;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    padding: 0;
+    font-size: 10px;
+    font-weight: 600;
+}
+.control_movs_btn:hover, .control_movs_btn_long:hover {
+    border: 1px solid white;
+    background-color:  rgb(47, 79, 79, 0.9);
+    color: white;
+}
+
 /* CANVAS */
 canvas.main_canvas {
     position: fixed;
     top: 0;
     left: 0;
     display: block;
+}
+
+/* SUB INSTRUMENTS */
+div.subinstruments_box {
+    position: fixed;
+    bottom: 0px;
+    left: 20%;
+    overflow: hidden;
+    width: 60%;
+    height: 13%;
+}
+div.instruments_subcontainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+button.subinstrument_btn {
+    position: absolute;
+    border: none;
+    height: 40%;
+    width: 5%;
+    background-color: rgb(47, 79, 79, 0.2);
+    padding: 0;
+    border-radius: 10px;
+}
+button.subinstrument_btn_one {
+    bottom: 5px;
+    left: 2%;
+}
+button.subinstrument_btn_two {
+    bottom: 18%;
+    left: 9%;
+}
+button.subinstrument_btn_three {
+    bottom: 33%;
+    left: 17%;
+}
+button.subinstrument_btn_four {
+    bottom: 38%;
+    left: 24%;
+}
+button.subinstrument_btn_five {
+    bottom: 45%;
+    left: 31%;
+}
+button.subinstrument_btn_six {
+    bottom: 48%;
+    left: 39%;
+}
+button.subinstrument_btn_seven {
+    bottom: 50%;
+    left: 47%;
+}
+button.subinstrument_btn_eight {
+    bottom: 48%;
+    right: 39%;
+}
+button.subinstrument_btn_nine {
+    bottom: 45%;
+    right: 31%;
+}
+button.subinstrument_btn_ten {
+    bottom: 38%;
+    right: 24%;
+}
+button.subinstrument_btn_eleven {
+    bottom: 33%;
+    right: 17%;
+}
+button.subinstrument_btn_twelve {
+    bottom: 18%;
+    right: 9%;
+}
+button.subinstrument_btn_thirteen {
+    bottom: 5px;
+    right: 2%;
+}
+button.subinstrument_btn:hover {
+    background-color: rgb(47, 79, 79, 0.7);
+    transform: scale(1.1);
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+}
+img.subinstrument_item {
+    width: 100% !important;
+    background-color: none;
 }
