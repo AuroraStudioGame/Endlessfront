@@ -291,14 +291,17 @@ class Login extends Component {
   }
   submitLogin = (e) => {
     if(this.state.login && this.state.pass){
-      $.get(`players?log=${this.state.login}&pass=${this.state.pass}`, async (response) => {
-        if(response) {
-          //console.log('RES-->', typeof(response), response)
-          //let resjson = await response.json()
-          let location = { pathname: '/constructor', state: { userInfo: response } }
-          this.props.history.push(location)
-        }
-      })
+      // $.get(`players?log=${this.state.login}&pass=${this.state.pass}`, async (response) => {
+      //   if(response) {
+      //     //console.log('RES-->', typeof(response), response)
+      //     //let resjson = await response.json()
+      //     let location = { pathname: '/constructor', state: { userInfo: response } }
+      //     this.props.history.push(location)
+      //   }
+      // })
+      //заглушка
+      let location = { pathname: '/constructor', state: { userInfo: {id: 0, data: {avatar: ''}} } }
+      this.props.history.push(location)
       e.preventDefault()
     } else if(this.state.fullname && this.state.setlogin && this.state.setpass) {
       $.get(`register?fullname=${this.state.fullname}&setlogin=${this.state.setlogin}&setpass=${this.state.setpass}`, (res) => {
