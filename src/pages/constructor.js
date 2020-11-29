@@ -5,7 +5,6 @@ import MaterialShop from '../components/materialShop'
 import _ from 'lodash'
 import $ from 'jquery'
 import SettingsModal from '../components/SettingsModal';
-import Threejs from '../components/thr'
 import ConstructorScene from '../components/constructorScene'
 
 class Constructor extends Component {
@@ -49,7 +48,6 @@ class Constructor extends Component {
   render() {
     return (
       <main className='constructor_box'>
-        {/* <Threejs add={this.state.create}/> */}
         <ConstructorScene addMesh={this.state.create} setMatrial={this.state.setMaterial}/>
         <Interface userInfo={this.state.userInfo} avatar={this.state.avatarImage} handleClick={e => this.openModal(e)}/>
         <MaterialShop setMaterial={this.setMaterial}/>

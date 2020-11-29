@@ -16,10 +16,34 @@ class ConstructorScene extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if(nextProps.addMesh && nextProps.addMesh !== this.props.addMesh) {
-      this.main({add: nextProps.addMesh, type: 'addMesh'})
+      this.addMesh({name: nextProps.addMesh, type: 'addMesh'})
     }
     if(nextProps.setMaterial && nextProps.setMaterial !== this.props.setMaterial) {
-      this.main({add: nextProps.setMaterial, type: 'setMaterial'})
+      this.addMesh({name: nextProps.setMaterial, type: 'setMaterial'})
+    }
+  }
+  addMesh = (mesh) => {
+    if(mesh.name === 'box' && mesh.type === 'addMesh') {
+      let texture = new THREE.TextureLoader().load('/textures/wall1.jpg')
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
+      texture.repeat.set( 4, 4 );
+      let geometry = new THREE.BoxGeometry(5, 5, 5, 10, 10, 10);
+      let material = new THREE.MeshBasicMaterial( {map: texture, morphTargets: true} );
+      let box = new THREE.Mesh( geometry, material );
+      box.position.set(this.camera.position.x - 3, this.camera.position.y - 3, this.camera.position.z - 3);
+      this.scene.add( box );
+    }
+    if(mesh.name === 'sphere' && mesh.type === 'addMesh') {
+      let texture = new THREE.TextureLoader().load('/textures/wall1.jpg')
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
+      texture.repeat.set( 4, 4 );
+      let geometry = new THREE.SphereGeometry(2, 5, 5);
+      let material = new THREE.MeshBasicMaterial( {map: texture, morphTargets: true} );
+      let sphere = new THREE.Mesh( geometry, material );
+      sphere.position.set(this.camera.position.x - 3, this.camera.position.y - 3, this.camera.position.z - 3);
+      this.scene.add( sphere );
     }
   }
   main = (add) => {
@@ -39,7 +63,8 @@ class ConstructorScene extends Component {
     controls.update();
   
     const scene = new THREE.Scene();
-    
+    this.camera = camera
+    this.scene = scene
     const loader = new THREE.CubeTextureLoader();
     //skybox
       const texture = loader.load([
